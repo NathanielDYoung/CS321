@@ -8,6 +8,21 @@ import javafx.scene.control.TextField;
 
 public class ApprovalController {
 
+    private class Approval{
+        public DivorceReport report;
+
+        public Approval(){
+            setReport(null);
+        }
+
+        public DivorceReport getReport(){
+            return report;
+        }
+
+        public void setReport(DivorceReport report){
+            this.report = report;
+        }
+    }
     private Approval approval;
 
     @FXML
