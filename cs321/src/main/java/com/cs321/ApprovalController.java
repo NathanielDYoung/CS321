@@ -28,6 +28,7 @@ public class ApprovalController {
 
     @FXML
     private void denyApproval(ActionEvent event) throws IOException {
+        Workflow.createWorkflowItem(approval.getReport()); 
         System.out.println("DENIED: " + client_name.getText() + " would like to change their marriage status with " + spouse_name.getText() + " to " + desired_status.getText() + ".");
         System.out.println("Form has been sent back for review.");
     }
