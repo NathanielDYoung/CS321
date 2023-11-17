@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
 public class ReviewController {
-    private Review review;
+    private DivorceReport report;
 
     @FXML
     private TextField user;
@@ -16,9 +16,6 @@ public class ReviewController {
     @FXML
     private TextField marriage;
 
-    public ReviewController() {
-        review = new Review(null, null);
-    }
 
     @FXML
     public void initialize() {
@@ -31,9 +28,9 @@ public class ReviewController {
      */
     @FXML
     private void view(ActionEvent event) throws IOException {
-        user.setText(review.getReport().getUserInformation());
-        spouse.setText(review.getReport().getSpouseInformation());
-        marriage.setText(review.getReport().getMarriageStatus());
+        user.setText(report.getUserInformation());
+        spouse.setText(report.getSpouseInformation());
+        marriage.setText(report.getMarriageStatus());
     }
 
     /*
@@ -43,16 +40,16 @@ public class ReviewController {
      */
     @FXML
     private void edit(ActionEvent event) throws IOException {
-        if (user.getText() != "" && review.getReport() != null)
-            review.getReport().setUserInformation(user.getText());
+        if (user.getText() != "" && report != null)
+            report.setUserInformation(user.getText());
 
-        if (spouse.getText() != "" && review.getReport() != null)
-            review.getReport().setSpouseInformation(spouse.getText());
+        if (spouse.getText() != "" && report != null)
+            report.setSpouseInformation(spouse.getText());
 
-        if (marriage.getText() != "" && review.getReport() != null)
-            review.getReport().setMarriageStatus(marriage.getText());
+        if (marriage.getText() != "" && report != null)
+            report.setMarriageStatus(marriage.getText());
 
-        System.out.println(review.getReport());
+        System.out.println(report);
     }
 
     /*
@@ -62,7 +59,7 @@ public class ReviewController {
 
     @FXML
     private void next() {
-        review.setReport(Workflow.getReviewItem());
+        report = Workflow.getReviewItem();
     }
 
     /*
@@ -72,16 +69,16 @@ public class ReviewController {
      */
     @FXML
     private void finish() {
-        if (review.getReport() == null) {
+        if (report == null) {
             System.out.println("Report does not exist.");
         }
 
         else {
-            System.out.println(review.getReport());
+            System.out.println(report);
 
-            Workflow.putReviewedItem(review.getReport());
+            Workflow.putReviewedItem(report);
 
-            review.setReport(null);
+            report = null;
 
             user.setText("");
             spouse.setText("");

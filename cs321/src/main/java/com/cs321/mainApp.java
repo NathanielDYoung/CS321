@@ -47,7 +47,7 @@ public class mainApp extends Application {
     }
 
     private static Scene createScene(String fxml) throws IOException {
-        Parent root = FXMLLoader.load(MainApp.class.getResource(fxml + ".fxml"));
+        Parent root = FXMLLoader.load(mainApp.class.getResource(fxml + ".fxml"));
         return new Scene(root, 640, 480);
     }
 
