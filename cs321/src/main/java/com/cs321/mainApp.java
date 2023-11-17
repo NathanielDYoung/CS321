@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class MainApp extends Application {
+public class mainApp extends Application {
     private static Scene dataentry;
     private static Scene review;
     private static Scene approval;
